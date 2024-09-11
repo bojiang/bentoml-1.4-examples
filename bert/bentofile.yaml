@@ -1,6 +1,5 @@
-service: "service:VLLM"
+service: "service:Iris"
 labels:
-  source: https://github.com/bentoml/openllm-models-feed/tree/main/src/vllm-chat
   platforms: linux
 include:
 - "*.py"

@@ -4,7 +4,7 @@ from transformers import AutoModel
 import time
 
 @bentoml.service
-class TestModelPreheat:
+class Iris:
     model = BentoModel("iris_clf:ggthayrc3wqnh4wa")
     tokenizer = HuggingFaceModel("bert-base-uncased")
 
