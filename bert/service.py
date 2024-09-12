@@ -1,16 +1,16 @@
 import bentoml
-from bentoml.models import HuggingFaceModel, BentoModel
-from transformers import AutoModel
+from bentoml.models import HuggingFaceModel
 import time
+
 
 @bentoml.service
 class Iris:
-    model = BentoModel("iris_clf:ggthayrc3wqnh4wa")
     tokenizer = HuggingFaceModel("bert-base-uncased")
 
     def __init__(self) -> None:
+        from transformers import AutoModel
+
         start = time.time()
-        print("bento model loaded", self.model)
         print("huggingface model loaded", self.tokenizer)
         self.model = AutoModel.from_pretrained(self.tokenizer)
         print("init time cost", time.time() - start)
